@@ -12,7 +12,9 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* LoGo */}
         <Link href={"/"}>
-          <h1 className="text-3xl font-semibold">Luke</h1>
+          <h1 className="text-3xl font-semibold">
+            Luke <span className="text-red-900">.</span>
+          </h1>
         </Link>
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8">

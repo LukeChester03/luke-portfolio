@@ -1,3 +1,5 @@
+"use client";
+import Stats from "@/components/ui/Stats";
 import { Button } from "@/components/ui/button";
 import Photo from "@/components/ui/Photo";
 import Social from "@/components/ui/Social";
@@ -5,6 +7,14 @@ import React from "react";
 import { FiDownload } from "react-icons/fi";
 
 const Home = () => {
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/assets/Luke-Chester-CV.pdf"; // Path to your CV PDF
+    link.download = "Luke-Chester-CV.pdf"; // Name of the downloaded file
+    link.click();
+    console.log("Download CV");
+  };
+
   return (
     <section className="h-full">
       <div className="container mx-auto h-full">
@@ -21,7 +31,12 @@ const Home = () => {
               programming languages and technologies
             </p>
             <div className=" flex flex-col xl:flex-row items-center gap-8">
-              <Button variant="outline" size="lg" className="uppercase gap-2">
+              <Button
+                variant="outline"
+                size="lg"
+                className="uppercase gap-2"
+                onClick={handleDownload}
+              >
                 <span>Download CV</span>
                 <FiDownload className="text-xl" />
               </Button>
@@ -39,6 +54,7 @@ const Home = () => {
             <Photo />
           </div>
         </div>
+        <Stats />
       </div>
     </section>
   );

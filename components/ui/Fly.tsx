@@ -15,7 +15,7 @@ const flyAnimation = {
 
 // reverse index for staggered delay
 const reverseIndex = (index: number) => {
-  const totalSteps = 8;
+  const totalSteps = 6;
   return (totalSteps - index - 1) * 0.1;
 };
 

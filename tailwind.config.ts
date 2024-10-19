@@ -28,8 +28,8 @@ const config: Config = {
         primary: "#181c20",
         secondary: "#23292d",
         accent: {
-          DEFAULT: "#e3242b",
-          hover: "#e3242b",
+          DEFAULT: "#a91b0d",
+          hover: "#900603",
         },
       },
     },
