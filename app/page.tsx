@@ -22,7 +22,7 @@ const Home = () => {
           <div className="text-center xl:text-left order-2 xl:order-none">
             <span className="h3">Software Developer</span>
             <h1 className="h1 mb-8">
-              Hello! I'm
+              Hello! My name is
               <br />
               <span className="text-accent">Luke Chester</span>
             </h1>

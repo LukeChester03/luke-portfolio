@@ -10,26 +10,26 @@ const services = [
     title: "Web Development",
     description:
       "I can create a modern and responsive website for you using the latest technologies.",
-    href: "",
+    href: "/contact",
   },
 
   {
     number: "02",
     title: "UI/UX Design",
     description: "I can design a user-friendly interface for your website or application.",
-    href: "",
+    href: "/contact",
   },
   {
     number: "03",
     title: "Tech Consulting",
     description: "I can provide you with advice on the best technologies for your project.",
-    href: "",
+    href: "/contact",
   },
   {
     number: "04",
     title: "App Development",
     description: "I can create a mobile application for you using React Native.",
-    href: "",
+    href: "/contact",
   },
 ];
 const Services = () => {

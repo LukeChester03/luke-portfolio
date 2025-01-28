@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
@@ -8,6 +8,13 @@ import { motion } from "framer-motion";
 import Fly from "./Fly";
 
 const FlyTransition = () => {
+  const [isInitialLoad, initialLoad] = useState(true);
+
+  useEffect(() => {
+    if (isInitialLoad) {
+      initialLoad(false);
+    }
+  }, [isInitialLoad]);
   const pathName = usePathname();
   return (
     <>
