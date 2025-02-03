@@ -3,7 +3,7 @@ import Link from "next/link";
 
 //Components
 import Nav from "./Nav";
-import { Button } from "./button";
+import { Button } from "./Button";
 import MobileNav from "./MobileNav";
 
 const Header = () => {

@@ -1,6 +1,6 @@
 "use client";
 import Stats from "@/components/ui/Stats";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import Photo from "@/components/ui/Photo";
 import Social from "@/components/ui/Social";
 import React from "react";

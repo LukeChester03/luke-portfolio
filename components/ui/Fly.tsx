@@ -15,7 +15,7 @@ const flyAnimation = {
 
 // reverse index for staggered delay
 const reverseIndex = (index: number) => {
-  const totalSteps = 6;
+  const totalSteps = 5;
   return (totalSteps - index - 1) * 0.1;
 };
 
@@ -23,7 +23,7 @@ const Fly = () => {
   return (
     <>
       {/* render six motion divs going bottom left to top right */}
-      {[...Array(8)].map((_, index) => {
+      {[...Array(5)].map((_, index) => {
         return (
           <motion.div
             key={index}
