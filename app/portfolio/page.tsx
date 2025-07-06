@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import Header from "@/components/ui/Header";
-import Footer from "@/components/ui/Footer";
-import PortfolioContent from "@/components/ui/PortfolioContent";
+import Header from "@/Components/Header";
+import Footer from "@/Components/Footer";
+import PortfolioContent from "@/Components/PortfolioContent";
 
 const PortfolioPage = () => {
   return (

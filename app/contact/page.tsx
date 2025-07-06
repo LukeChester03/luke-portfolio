@@ -5,9 +5,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { Textarea } from "@/components/ui/TextArea";
+import { Button } from "@/Components/Button";
+import { Input } from "@/Components/Input";
+import { Textarea } from "@/Components/TextArea";
 import {
   Select,
   SelectContent,
@@ -16,7 +16,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/Select";
+} from "@/Components/Select";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";

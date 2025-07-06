@@ -3,7 +3,7 @@
 import { BsArrowDownRight } from "react-icons/bs";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Footer from "@/components/ui/Footer";
+import Footer from "@/Components/Footer";
 
 const services = [
   {

@@ -1,11 +1,11 @@
 "use client";
-import Stats from "@/components/ui/Stats";
-import { Button } from "@/components/ui/Button";
-import Photo from "@/components/ui/Photo";
-import Social from "@/components/ui/Social";
+import Stats from "@/Components/Stats";
+import { Button } from "@/Components/Button";
+import Photo from "@/Components/Photo";
+import Social from "@/Components/Social";
 import React from "react";
 import { FiDownload } from "react-icons/fi";
-import Footer from "@/components/ui/Footer";
+import Footer from "@/Components/Footer";
 
 const Home = () => {
   const handleDownload = () => {

@@ -1,9 +1,9 @@
 "use client";
 
-import Timeline from "@/components/ui/Timeline";
+import Timeline from "@/Components/Timeline";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/Button";
-import Footer from "@/components/ui/Footer";
+import { Button } from "@/Components/Button";
+import Footer from "@/Components/Footer";
 
 const CV = () => {
   return (
