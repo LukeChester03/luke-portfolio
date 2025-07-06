@@ -9,8 +9,8 @@ import { FiDownload } from "react-icons/fi";
 const Home = () => {
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/assets/Luke-Chester-CV.pdf"; // Path to your CV PDF
-    link.download = "Luke-Chester-CV.pdf"; // Name of the downloaded file
+    link.href = "/assets/Luke-Chester-CV.pdf";
+    link.download = "Luke-Chester-CV.pdf";
     link.click();
     console.log("Download CV");
   };

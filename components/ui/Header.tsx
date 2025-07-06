@@ -1,7 +1,5 @@
 import React from "react";
 import Link from "next/link";
-
-//Components
 import Nav from "./Nav";
 import { Button } from "./Button";
 import MobileNav from "./MobileNav";
