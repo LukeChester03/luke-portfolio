@@ -16,14 +16,15 @@ const Home = () => {
 
   return (
     <section className="relative min-h-screen bg-primary">
-      <TestTailwind />
       {/* Main content with transparent backgrounds */}
       <div className="relative z-10 container mx-auto py-12 bg-transparent">
+        <TestTailwind />
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24 bg-transparent">
           <div className="text-center xl:text-left order-2 xl:order-none bg-transparent">
             <span className="h3 bg-transparent">Software Developer</span>
             <h1 className="h1 mb-8 bg-transparent">
               Hello! My name is
+              <TestTailwind />
               <br />
               <span className="text-accent bg-transparent">Luke Chester</span>
             </h1>
