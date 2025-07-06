@@ -141,14 +141,14 @@ const TimelineItem = ({ item, index }) => {
         maxWidth: `${CARD_WIDTH_PX}px`,
         marginLeft: isRightSide ? "calc(50% + 1.5rem)" : undefined,
         marginRight: !isRightSide ? "calc(50% + 1.5rem)" : undefined,
-        textAlign: "left", // Always left aligned
+        textAlign: "left",
       }}
     >
       {/* Icon bullet */}
       <div
         className="absolute top-5 w-14 h-14 bg-red-700 text-white rounded-full flex items-center justify-center shadow-lg text-2xl"
         style={{
-          left: isRightSide ? "-52px" : "calc(100% - 8px)",
+          left: isRightSide ? "-52px" : "calc(100% - 4px)",
         }}
       >
         {item.icon}

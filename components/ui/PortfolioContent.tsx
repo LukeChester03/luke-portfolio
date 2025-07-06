@@ -11,6 +11,8 @@ import {
   FaProjectDiagram,
   FaChevronDown,
 } from "react-icons/fa";
+import Nav from "./Nav";
+import Link from "next/link";
 
 interface Project {
   title: string;
@@ -21,17 +23,23 @@ interface Project {
   repoUrl?: string | null;
 }
 
-const placeholderIcons = [FaMapMarkedAlt, FaGamepad, FaLaptopCode, FaCode, FaProjectDiagram];
+const placeholderIcons = [FaGamepad, FaLaptopCode, FaCode, FaProjectDiagram];
 
 const projects: Project[] = [
   {
-    title: "PathWise - AI-Powered Tour Guide",
+    title: "PathWise — AI-Powered Tourism Assistant",
     images: ["PathWise_ss_1.png", "PathWise_ss_2.png", "PathWise_ss_3.png"],
     description:
-      "An intelligent tourism app delivering real-time personalised cultural stories and gamified experiences as you explore.",
+      "An innovative mobile app that combines real-time location tracking with AI-generated, personalised cultural stories and gamified experiences to enrich how users explore the world.",
     details:
-      "Built with React Native, PathWise combines AI-driven contextual storytelling with location-based gamification to create immersive travel experiences. It integrates map data and cultural insights, personalising each tour based on user behavior.",
-    techStack: ["React Native", "AI", "Geolocation", "Firebase", "Google Cloud", "Google Maps SDK"],
+      "Built with React Native, Firebase, Google Maps SDK, and Google’s Gemini AI, PathWise delivers tailored cultural stories and gamified learning based on user location and behaviour. Developed using Feature-Driven Development and validated through expert feedback and user testing, it optimizes API usage with caching strategies for a smooth, cost-effective experience.",
+    techStack: [
+      "React Native",
+      "AI (Google Gemini)",
+      "Firebase",
+      "Google Maps SDK",
+      "Google Cloud Platform",
+    ],
     repoUrl: "https://github.com/LukeChester03/PathWise",
   },
   {
@@ -56,21 +64,21 @@ const projects: Project[] = [
   },
   {
     title: "Machine Learning & Data Mining Algorithm",
-    images: [null, null, null],
+    images: ["DM_ss_1.png", "DM_ss_2.png", "DM_ss_3.png"],
     description:
       "An image-input-based machine learning model training system that outputs detailed graphs and visualizations.",
     details:
       "Built using Jupyter Notebook and Python, this project processes image datasets to train models and generates comprehensive graphical reports on model performance and insights.",
     techStack: ["Python", "Jupyter Notebook", "Machine Learning", "Data Mining"],
-    repoUrl: "",
+    repoUrl: "https://github.com/LukeChester03/Data-Mining",
   },
   {
     title: "Portfolio Website",
-    images: [null, null, null],
+    images: ["PW_ss_1.png", "PW_ss_2.png", "PW_ss_3.png"],
     description:
       "A clean, modern portfolio website showcasing skills, projects, and contact information.",
     details:
-      "Developed with React, TypeScript, Three.js, and Framer Motion, the portfolio features smooth animations, 3D elements, and responsive design following best practices for accessibility and performance.",
+      "Developed with React, TypeScript, and Framer Motion, the portfolio features smooth animations, 3D elements, and responsive design following best practices for accessibility and performance.",
     techStack: ["React", "TypeScript", "Three.js", "Framer Motion"],
     repoUrl: "https://github.com/LukeChester03/luke-portfolio",
   },
@@ -96,7 +104,6 @@ function PlaceholderIcon({
     </div>
   );
 }
-
 function ScrollIndicatorSection({ text }: { text: string }) {
   return (
     <section className="snap-start h-screen flex flex-col items-center justify-center px-8 bg-primary opacity-100 text-white text-center select-none">
@@ -109,8 +116,8 @@ function ScrollIndicatorSection({ text }: { text: string }) {
         {text}
       </motion.p>
       <motion.div
-        animate={{ y: [0, 20, 0] }}
-        transition={{ duration: 0.8, yoyo: Infinity, ease: "easeOut" }}
+        animate={{ y: [0, -20, 0] }}
+        transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
         className="text-accent text-5xl md:text-6xl"
         aria-hidden="true"
       >
@@ -281,6 +288,11 @@ export default function PortfolioContent() {
           className="text-accent text-6xl md:text-7xl"
           aria-hidden="true"
         ></motion.div>
+        <div className="hidden lg:flex items-center gap-8">
+          <Link href={"/contact"}>
+            <Button size={"lg"}>Reach Out</Button>
+          </Link>
+        </div>
       </section>
     </div>
   );

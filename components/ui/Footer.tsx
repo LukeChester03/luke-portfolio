@@ -50,7 +50,7 @@ const Footer = () => {
             <FaLinkedin />
           </a>
           <a
-            href="mailto:youremail@example.com"
+            href="mailto:lukechester03@outlook.com"
             aria-label="Email"
             className="hover:text-red-600 transition-colors duration-300"
           >
