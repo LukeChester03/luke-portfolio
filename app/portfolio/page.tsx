@@ -1,7 +1,19 @@
-import React from "react";
+"use client";
 
-const Portfolio = () => {
-  return <div>Portfolio page</div>;
+import React from "react";
+import Header from "@/components/ui/Header";
+import Footer from "@/components/ui/Footer";
+import PortfolioContent from "@/components/ui/PortfolioContent";
+
+const PortfolioPage = () => {
+  return (
+    <>
+      <main className="min-h-screen bg-primary text-white">
+        <PortfolioContent />
+      </main>
+      <Footer />
+    </>
+  );
 };
 
-export default Portfolio;
+export default PortfolioPage;

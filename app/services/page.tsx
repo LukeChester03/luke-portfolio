@@ -3,6 +3,7 @@
 import { BsArrowDownRight } from "react-icons/bs";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Footer from "@/components/ui/Footer";
 
 const services = [
   {
@@ -68,6 +69,7 @@ const Services = () => {
           })}
         </motion.div>
       </div>
+      <Footer />
     </section>
   );
 };

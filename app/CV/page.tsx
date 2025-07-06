@@ -2,20 +2,22 @@
 
 import Timeline from "@/components/ui/Timeline";
 import { motion } from "framer-motion";
-import { FaHtml5, FaCss3, FaJs, FaReact, FaFigma, FaNodeJs } from "react-icons/fa";
-import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
+import { Button } from "@/components/ui/Button";
+import Footer from "@/components/ui/Footer";
 
 const CV = () => {
   return (
-    <section className="mind-h-80[80vh] flex flex-col justify-center py-12 xl:py-0">
-      <div className="container mx-auto">
+    <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-20 bg-primary text-white">
+      <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { delay: 2.4, duration: 0.4, ease: "easeIn" } }}
+          animate={{ opacity: 1, transition: { delay: 0.3, duration: 0.8 } }}
         >
+          <h1 className="h1 mb-12 text-center">My Experience & Projects</h1>
           <Timeline />
         </motion.div>
       </div>
+      <Footer />
     </section>
   );
 };

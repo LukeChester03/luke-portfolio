@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-//Components
 import Header from "@/components/ui/Header";
 import PageTransition from "@/components/ui/PageTransition";
 import FlyTransition from "@/components/ui/FlyTransition";
@@ -25,10 +24,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={jetBrainsMono.variable}>
-        <Header />
-        <FlyTransition />
-        <PageTransition> {children}</PageTransition>
+      <body className={`${jetBrainsMono.variable} min-h-screen bg-primary overflow-y-auto`}>
+        {/* Content wrapper: relative z-10 so content is above background */}
+        <div className="relative z-10">
+          <Header />
+          <FlyTransition />
+          <PageTransition>{children}</PageTransition>
+        </div>
       </body>
     </html>
   );
