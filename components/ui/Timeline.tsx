@@ -119,7 +119,7 @@ const timelineData = [
   },
 ];
 
-const TechBadge = ({ icon }) => (
+const TechBadge = ({ icon }: { icon: React.ReactNode }) => (
   <div className="text-red-600 bg-red-100 rounded-full p-2 mr-2 flex items-center justify-center text-xl shadow-sm">
     {icon}
   </div>
@@ -127,7 +127,19 @@ const TechBadge = ({ icon }) => (
 
 const CARD_WIDTH_PX = 480;
 
-const TimelineItem = ({ item, index }) => {
+interface TimelineItemProps {
+  item: {
+    date?: string;
+    title?: string;
+    company?: string;
+    description?: string[];
+    icon?: React.ReactNode;
+    techStack?: React.ReactNode[];
+  };
+  index: number;
+}
+
+const TimelineItem: React.FC<TimelineItemProps> = ({ item, index }) => {
   const isRightSide = index % 2 === 0;
 
   return (
@@ -188,7 +200,14 @@ const TimelineItem = ({ item, index }) => {
   );
 };
 
-const TimelineSection = ({ section }) => (
+interface TimelineSectionProps {
+  section: {
+    section: string;
+    items: any[];
+  };
+}
+
+const TimelineSection: React.FC<TimelineSectionProps> = ({ section }) => (
   <>
     <h2 className="text-4xl font-semibold mb-12 mt-20 border-b border-red-600 inline-block">
       {section.section}

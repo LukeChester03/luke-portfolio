@@ -284,7 +284,7 @@ export default function PortfolioContent() {
         </motion.h2>
         <motion.div
           animate={{ y: [0, 20, 0] }}
-          transition={{ duration: 0.8, yoyo: Infinity, ease: "easeOut" }}
+          transition={{ duration: 0.8, repeat: Infinity, ease: "easeOut" }}
           className="text-accent text-6xl md:text-7xl"
           aria-hidden="true"
         ></motion.div>
