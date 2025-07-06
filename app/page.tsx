@@ -6,6 +6,7 @@ import Social from "@/Components/Social";
 import React from "react";
 import { FiDownload } from "react-icons/fi";
 import Footer from "@/Components/Footer";
+import TestTailwind from "@/Components/TestTailwind";
 
 const Home = () => {
   const handleDownload = () => {
@@ -15,6 +16,7 @@ const Home = () => {
 
   return (
     <section className="relative min-h-screen bg-primary">
+      <TestTailwind />
       {/* Main content with transparent backgrounds */}
       <div className="relative z-10 container mx-auto py-12 bg-transparent">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24 bg-transparent">
