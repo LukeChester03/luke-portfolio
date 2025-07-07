@@ -11,7 +11,7 @@ const Header = () => {
         {/* LoGo */}
         <Link href={"/"}>
           <h1 className="text-3xl font-semibold">
-            Luke <span className="text-blue-900">.</span>
+            Luke <span className="text-blue-600">.</span>
           </h1>
         </Link>
         {/* Desktop Navigation */}
