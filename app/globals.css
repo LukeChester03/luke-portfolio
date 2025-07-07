@@ -3,34 +3,61 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    /* Use the new primary (white) background and dark gray text */
-    @apply font-primary bg-primary text-textPrimary leading-relaxed;
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    overflow-y: scroll; /* ✅ allow scrolling */
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+      to bottom,
+      #ffffff 0%,
+      #fef3c7 15%,
+      #d1fae5 30%,
+      #e0f2fe 45%,
+      #f3e8ff 60%,
+      #fde2e4 75%,
+      #fff1f2 90%,
+      #ffffff 100%
+    );
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
+
+  body {
+    @apply font-primary text-textPrimary leading-relaxed;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
   .h1 {
     @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
   }
+
   .h2 {
     @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
   }
+
   .h3 {
     @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
   }
 
-  /* Accent border color from config */
   .border-color-accent {
     border-color: theme("colors.accent.DEFAULT");
   }
 
-  /* Text outline in subtle dark gray */
   .text-outline {
     -webkit-text-stroke: 1px #333333;
   }
 
-  /* Text outline hover accent */
   .text-outline-hover {
     -webkit-text-stroke: 1px theme("colors.accent.DEFAULT");
   }
+
   .pattern-bg::before {
     content: "";
     position: absolute;

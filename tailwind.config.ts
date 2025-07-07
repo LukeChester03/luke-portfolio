@@ -25,15 +25,29 @@ const config: Config = {
     },
     extend: {
       colors: {
-        primary: "#ffffff", // background white
-        secondary: "#f5f5f7", // very light gray background or surfaces
+        primary: "#ffffff", // can keep or rename if you want solid white somewhere else
+        secondary: "#f5f5f7",
         accent: {
-          DEFAULT: "#0071e3", // Apple-style blue accent
-          hover: "#005bb5", // slightly darker blue for hover states
+          DEFAULT: "#0071e3",
+          hover: "#005bb5",
         },
-        textPrimary: "#1d1d1f", // dark gray (near black) text
-        textSecondary: "#3a3a3c", // medium gray text for secondary info
-        borderGray: "#e5e5e7", // subtle border gray
+        textPrimary: "#1d1d1f",
+        textSecondary: "#3a3a3c",
+        borderGray: "#e5e5e7",
+      },
+      backgroundImage: {
+        "primary-gradient": "linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, #ebf8ff 100%)",
+        "full-gradient": `linear-gradient(
+      to bottom,
+      #ffffff 0%,
+      #fef3c7 15%,
+      #d1fae5 30%,
+      #e0f2fe 45%,
+      #f3e8ff 60%,
+      #fde2e4 75%,
+      #fff1f2 90%,
+      #ffffff 100%
+    )`,
       },
     },
   },

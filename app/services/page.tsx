@@ -52,12 +52,12 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center pt-[100px] pb-12 bg-primary text-textPrimary">
+    <section className="min-h-[80vh] flex flex-col justify-center pt-[100px] pb-12 bg-primary-gradient text-textPrimary">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { delay: 2.4, duration: 0.4, ease: "easeIn" } }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-[60px]"
+          animate={{ opacity: 1, transition: { delay: 0.2, duration: 0.4, ease: "easeIn" } }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-[60px] px-6"
         >
           {services.map((service, index) => {
             return (

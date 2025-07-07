@@ -1,23 +1,15 @@
 "use client";
 
 import React from "react";
-import Header from "@/Components/Header";
-import Footer from "@/Components/Footer";
 import PortfolioContent from "@/Components/PortfolioContent";
-import { motion } from "framer-motion";
+import Footer from "@/Components/Footer";
 
 const PortfolioPage = () => {
   return (
-    <>
-      <main className="min-h-screen bg-primary text-white">
-        <motion.div
-          animate={{ opacity: 1, transition: { delay: 3.4, duration: 0.4, ease: "easeIn" } }}
-        >
-          <PortfolioContent />
-        </motion.div>
-      </main>
+    <main className="snap-y snap-mandatory bg-full-gradient h-screen w-screen overflow-y-scroll overflow-x-hidden">
+      <PortfolioContent />
       <Footer />
-    </>
+    </main>
   );
 };
 

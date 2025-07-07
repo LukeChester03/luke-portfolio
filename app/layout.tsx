@@ -25,10 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${jetBrainsMono.variable} min-h-screen bg-primary overflow-y-auto`}>
-        {/* Content wrapper: relative z-10 so content is above background */}
         <div className="relative z-10">
           <Header />
-          <FlyTransition />
+          {/* <FlyTransition /> */}
           <PageTransition>{children}</PageTransition>
         </div>
       </body>

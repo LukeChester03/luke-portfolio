@@ -15,7 +15,7 @@ const Header = () => {
           </h1>
         </Link>
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8 lg:text-lg xl:text-2xl">
           <Nav />
           <Link href={"/contact"}>
             <Button>Hire Me</Button>

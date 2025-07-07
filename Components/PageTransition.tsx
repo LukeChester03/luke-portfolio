@@ -9,16 +9,18 @@ interface PageTransitionProps {
 
 const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
   const pathName = usePathname();
+
   return (
-    <AnimatePresence>
-      <div key={pathName}>
-        <motion.div
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 0, transition: { delay: 1, duration: 0.2, ease: "easeInOut" } }}
-          className="h-screen w-screen fixed bg-primary top-0 pointer-events-none"
-        ></motion.div>
-      </div>
-      {children}
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.div
+        key={pathName}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { duration: 0.2, ease: "easeInOut" } }}
+        exit={{ opacity: 0, transition: { duration: 0.1, ease: "easeInOut" } }}
+        className="w-full h-full"
+      >
+        {children}
+      </motion.div>
     </AnimatePresence>
   );
 };

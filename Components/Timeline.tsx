@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/Components/Button";
 import {
@@ -221,14 +223,76 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ section }) => (
   </>
 );
 
-const Timeline = () => (
-  <div className="relative max-w-5xl mx-auto mt-12 px-4">
-    {/* Center vertical line */}
-    <div className="hidden md:block absolute left-1/2 top-0 w-1 bg-accent h-full -translate-x-1/2" />
-    {timelineData.map((section, idx) => (
-      <TimelineSection key={idx} section={section} />
-    ))}
+const MobileTimelineItem: React.FC<{ item: TimelineItemProps["item"] }> = ({ item }) => (
+  <div className="bg-primary text-textPrimary rounded-xl shadow-lg p-6 mb-8 max-w-xl mx-auto">
+    {item.date && (
+      <span className="text-textSecondary font-mono text-sm tracking-wide">{item.date}</span>
+    )}
+    {item.title && <h3 className="text-xl font-semibold mt-1 mb-1">{item.title}</h3>}
+    {item.company && <h4 className="text-md font-medium text-accent mb-3">{item.company}</h4>}
+
+    {item.description && (
+      <ul className="list-disc list-inside space-y-1 text-textSecondary leading-relaxed text-sm">
+        {item.description.map((point, idx) => (
+          <li key={idx}>{point}</li>
+        ))}
+      </ul>
+    )}
+
+    {item.techStack && (
+      <div className="flex mt-3 flex-wrap justify-start">
+        {item.techStack.map((icon, idx) => (
+          <TechBadge key={idx} icon={icon} />
+        ))}
+      </div>
+    )}
   </div>
 );
+
+const MobileTimelineSection: React.FC<TimelineSectionProps> = ({ section }) => (
+  <>
+    <h2 className="text-2xl font-semibold mb-6 mt-12 border-b border-accent inline-block px-4">
+      {section.section}
+    </h2>
+    <div>
+      {section.items.map((item, idx) => (
+        <MobileTimelineItem key={idx} item={item} />
+      ))}
+    </div>
+  </>
+);
+
+const Timeline = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    function checkMobile() {
+      setIsMobile(window.innerWidth < 768);
+    }
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  if (isMobile) {
+    return (
+      <div className="p-4 max-w-md mx-auto">
+        {timelineData.map((section, idx) => (
+          <MobileTimelineSection key={idx} section={section} />
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative max-w-5xl mx-auto mt-12 px-4">
+      {/* Center vertical line */}
+      <div className="hidden md:block absolute left-1/2 top-0 w-1 bg-accent h-full -translate-x-1/2" />
+      {timelineData.map((section, idx) => (
+        <TimelineSection key={idx} section={section} />
+      ))}
+    </div>
+  );
+};
 
 export default Timeline;
