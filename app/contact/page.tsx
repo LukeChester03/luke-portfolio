@@ -167,7 +167,10 @@ const Contact = () => {
                   defaultValue=""
                   aria-invalid={errors.service ? "true" : "false"}
                 >
-                  <SelectTrigger className="w-full text-black" />
+                  <SelectTrigger className="w-full text-black/60">
+                    <SelectValue placeholder="Select a Service" />
+                  </SelectTrigger>
+
                   <SelectContent>
                     <SelectGroup>
                       <SelectLabel>Select a Service</SelectLabel>
