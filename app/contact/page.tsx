@@ -103,9 +103,9 @@ const Contact = () => {
             >
               <h3 className="text-4xl text-accent">Let's get in touch</h3>
               <p className="text-textSecondary">
-                Whether you're looking for help creating or updating your website, exploring my
-                other services, or simply want to connect for collaboration, feel free to send me a
-                message!
+                Whether you’re looking to create or update a website, explore my range of services,
+                discuss collaboration opportunities, or are an employer interested in hiring a
+                dedicated software engineer, feel free to reach out -<br /> I would love to connect!
               </p>
 
               {/* inputs grid with flex-col wrappers for full width and stable error */}

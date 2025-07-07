@@ -10,32 +10,49 @@ const services = [
     number: "01",
     title: "Web Development",
     description:
-      "I can create a modern and responsive website for you using the latest technologies.",
+      "I build modern, responsive websites tailored to your brand and goals, leveraging the latest technologies to deliver exceptional user experiences.",
     href: "/contact",
   },
   {
     number: "02",
     title: "UI/UX Design",
-    description: "I can design a user-friendly interface for your website or application.",
+    description:
+      "I design intuitive, user-centric interfaces that ensure seamless navigation and maximize engagement across web and mobile platforms.",
     href: "/contact",
   },
   {
     number: "03",
     title: "Tech Consulting",
-    description: "I can provide you with advice on the best technologies for your project.",
+    description:
+      "I offer expert guidance to help you choose and implement the best technology stack for your project’s unique requirements and scalability.",
     href: "/contact",
   },
   {
     number: "04",
     title: "App Development",
-    description: "I can create a mobile application for you using React Native.",
+    description:
+      "I develop high-performance mobile applications using React Native, delivering native-like experiences on both iOS and Android devices.",
+    href: "/contact",
+  },
+  {
+    number: "05",
+    title: "AI Integration",
+    description:
+      "I can seamlessly integrate AI-powered features into your products, from intelligent automation to personalized user experiences, enhancing functionality and value.",
+    href: "/contact",
+  },
+  {
+    number: "06",
+    title: "Maintenance & Support",
+    description:
+      "I provide reliable ongoing support and updates to keep your digital products secure, up-to-date, and performing at their best.",
     href: "/contact",
   },
 ];
 
 const Services = () => {
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0 bg-primary text-textPrimary">
+    <section className="min-h-[80vh] flex flex-col justify-center pt-[100px] pb-12 bg-primary text-textPrimary">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0 }}

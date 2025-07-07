@@ -34,7 +34,7 @@ const Fly = () => {
             transition={{
               duration: 0.2,
               ease: "easeInOut",
-              delay: reverseIndex(index), // Pass index to reverseIndex function
+              delay: reverseIndex(index),
             }}
             className="h-full w-full bg-secondary relative"
           ></motion.div>

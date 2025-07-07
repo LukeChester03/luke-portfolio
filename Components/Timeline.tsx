@@ -19,57 +19,53 @@ const timelineData = [
     section: "Education",
     items: [
       {
-        date: "Sept 2021 - July 2025",
+        date: "Sept 2021 – July 2025",
         title: "BSc (Hons) Computer Science with Industrial Experience",
-        company: "University of Loughborough",
+        company: "Loughborough University",
         description: [
-          "Relevant Modules: Computer Systems (85%), Object Oriented Programming (83%), Software Engineering (75%), Maths for Computer Science (65%), Web Programming (77%).",
+          "Graduated with a 2:1",
+          "Key modules: Human Computer Interaction (82%), Object-Oriented Programming (83%), Software Engineering (75%), Data Mining and Machine Learning (70%), Web Programming (77%).",
+          "Industrial placement: Hands-on experience applying full-stack development and AI integration in real-world projects.",
         ],
-        icon: <FaLaptopCode />,
-      },
-      {
-        date: "Sept 2019 - June 2021",
-        title: "A Levels: Geography (A), Maths (B), Economics (B), EPQ (B)",
-        company: "Reading Grammar School",
         icon: <FaLaptopCode />,
       },
     ],
   },
   {
-    section: "Relevant Experience",
+    section: "Experience",
     items: [
       {
-        date: "Sept 2023 - Aug 2024",
-        title: "Software Engineer",
+        date: "Sept 2023 – Aug 2024",
+        title: "Software Engineer (Full-time Placement)",
         company: "Accenture, London",
         description: [
-          "Developed a React.js site for patient information display used as client demo.",
-          "Worked in cross-functional teams developing full-stack applications including Generative AI features.",
-          "Designed and deployed internal terminology site used by 100+ employees, saving 20% time.",
-          "Visualised a sales presentation contributing to business growth.",
+          "Designed and developed a React.js web app to display patient information, showcased in client demos.",
+          "Collaborated in cross-functional Agile teams to deliver full-stack applications, including features powered by Generative AI.",
+          "Led design and deployment of an internal terminology site used by 100+ employees, reducing search time by 20%.",
+          "Created dynamic sales presentation visualisations contributing directly to new business wins.",
         ],
         icon: <FaBriefcase />,
         techStack: [<FaReact />, <FaPython />, <FaDatabase />, <FaGitAlt />],
       },
       {
-        date: "Jan 2023 - Aug 2024",
-        title: "Software Engineer",
-        company: "AppAtree (Remote)",
+        date: "Jan 2023 – Aug 2024",
+        title: "Software Engineer (Remote)",
+        company: "AppAtree",
         description: [
-          "Built a React.js blog website now flagship site.",
-          "Resolved 20+ critical bugs for mobile app, achieving 1000+ downloads and 5-star rating.",
-          "Contributed to Agile sprints, reducing bug backlog by 70%.",
+          "Developed a flagship React.js blog website, enhancing user engagement and content management.",
+          "Resolved 20+ critical mobile app bugs, resulting in 1000+ downloads and a consistent 5-star rating.",
+          "Contributed actively in Agile sprints, reducing bug backlog by 70% and improving app stability.",
         ],
         icon: <FaBriefcase />,
         techStack: [<FaReact />, <FaNodeJs />, <FaGitAlt />],
       },
       {
-        date: "July 2021 - Aug 2021",
-        title: "Junior Developer (Intern)",
+        date: "July 2021 – Aug 2021",
+        title: "Junior Developer Intern",
         company: "MMOB, Canary Wharf, London",
         description: [
-          "Manipulated data into graph visualisations using Python and matplotlib.",
-          "Used SQL queries to fetch client data, improving company data understanding.",
+          "Processed and visualised complex datasets using Python and matplotlib for client reporting.",
+          "Optimised SQL queries to extract actionable insights, improving company data accuracy.",
         ],
         icon: <FaBriefcase />,
         techStack: [<FaPython />, <FaDatabase />],
@@ -80,14 +76,19 @@ const timelineData = [
     section: "Skills",
     items: [
       {
-        title: "Coding Skills (Advanced):",
-        description: ["JavaScript, TypeScript, Node.js, Python, SQL, React.js, CSS"],
+        title: "Technical Skills",
+        description: [
+          "Advanced proficiency in JavaScript, TypeScript, Node.js, Python, SQL, React.js, and CSS.",
+          "Experience with REST APIs, Git version control, Agile development, and cloud platforms.",
+        ],
         icon: <FaLaptopCode />,
       },
       {
-        title: "Soft Skills:",
+        title: "Professional & Soft Skills",
         description: [
-          "Team Management, Data Visualisations, Workshops, Presentations, Teamwork, Brainstorming",
+          "Strong teamwork, communication, and problem-solving skills.",
+          "Experience leading workshops, delivering presentations, and facilitating brainstorming sessions.",
+          "Adaptable and quick learner with a passion for innovative technology solutions.",
         ],
         icon: <FaLaptopCode />,
       },
@@ -99,21 +100,25 @@ const timelineData = [
       {
         title: "Terminology Hub",
         description: [
-          "Built React front-end with real-time search, term submission & voting integrated with Python REST APIs.",
+          "Created a React front-end featuring real-time search, user term submission, and voting integrated with Python REST APIs.",
+          "Improved internal knowledge sharing and reduced search time across teams.",
         ],
         icon: <FaLaptopCode />,
       },
       {
         title: "Venue Booking Website",
         description: [
-          "Developed PHP site with SQL database for real-time bookings, dynamic content using ES6 & AJAX.",
+          "Developed a PHP-based site with a SQL backend supporting real-time bookings and dynamic content using ES6 and AJAX.",
+          "Enhanced booking efficiency and user experience through responsive design.",
         ],
         icon: <FaPhp />,
       },
       {
-        title: "AI Powered Mobile App",
+        title: "AI-Powered Mobile Tourism App",
         description: [
-          "Built global tourism app using React Native, Firebase, Google Gemini AI, Google Maps API with caching system reducing API calls by 95%.",
+          "Built a global travel app using React Native, Firebase, Google Gemini AI, and Google Maps API.",
+          "Implemented a caching system reducing API calls by 95%, improving performance and reducing costs.",
+          "Enabled personalized, location-based cultural insights to enrich user travel experiences.",
         ],
         icon: <SiFirebase />,
       },
@@ -205,7 +210,7 @@ interface TimelineSectionProps {
 
 const TimelineSection: React.FC<TimelineSectionProps> = ({ section }) => (
   <>
-    <h2 className="text-4xl font-semibold mb-12 mt-20 border-b border-accent inline-block">
+    <h2 className="text-4xl font-semibold mb-12 mt-20 mr-8 border-b border-accent inline-block">
       {section.section}
     </h2>
     <div className="relative">
