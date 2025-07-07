@@ -1,4 +1,5 @@
 "use client";
+
 import Stats from "@/Components/Stats";
 import { Button } from "@/Components/Button";
 import Social from "@/Components/Social";
@@ -6,6 +7,7 @@ import React from "react";
 import { FiDownload } from "react-icons/fi";
 import Footer from "@/Components/Footer";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Home = () => {
   const handleDownload = () => {
@@ -31,7 +33,9 @@ const Home = () => {
           <p className="mb-8 text-textSecondary bg-transparent h3">
             Specialising in web programming, app development and AI-powered solutions.
           </p>
-          <div className="flex flex-col sm:flex-row items-center gap-8 bg-transparent justify-center">
+
+          {/* Buttons container */}
+          <div className="flex flex-col sm:flex-row items-center gap-6 bg-transparent justify-center">
             <Button
               variant="outline"
               size="lg"
@@ -41,6 +45,14 @@ const Home = () => {
               <span>Download CV</span>
               <FiDownload className="text-xl" />
             </Button>
+
+            {/* New portfolio button */}
+            <Link href="/portfolio" passHref legacyBehavior>
+              <Button variant="outline" size="lg" className="uppercase gap-2 bg-transparent">
+                View Portfolio
+              </Button>
+            </Link>
+
             <Social
               containerStyles={"flex gap-6 bg-transparent"}
               iconStyles={
