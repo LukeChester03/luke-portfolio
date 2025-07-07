@@ -20,7 +20,7 @@ const CV = () => {
         </div>
 
         {/* Center the button */}
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-8 mb-8">
           <Link href={"/contact"}>
             <Button size={"lg"}>Reach out</Button>
           </Link>
