@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Button } from "@/Components/Button";
 import {
   FaBriefcase,
   FaReact,
@@ -11,6 +12,7 @@ import {
   FaPhp,
 } from "react-icons/fa";
 import { SiTailwindcss, SiNextdotjs, SiFirebase } from "react-icons/si";
+import Link from "next/link";
 
 const timelineData = [
   {
@@ -120,7 +122,7 @@ const timelineData = [
 ];
 
 const TechBadge = ({ icon }: { icon: React.ReactNode }) => (
-  <div className="text-red-600 bg-red-100 rounded-full p-2 mr-2 flex items-center justify-center text-xl shadow-sm">
+  <div className="text-accent bg-accent/20 rounded-full p-2 mr-2 flex items-center justify-center text-xl shadow-sm">
     {icon}
   </div>
 );
@@ -158,7 +160,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index }) => {
     >
       {/* Icon bullet */}
       <div
-        className="absolute top-5 w-14 h-14 bg-red-700 text-white rounded-full flex items-center justify-center shadow-lg text-2xl"
+        className="absolute top-5 w-14 h-14 bg-accent text-primary rounded-full flex items-center justify-center shadow-lg text-2xl"
         style={{
           left: isRightSide ? "-52px" : "calc(100% - 4px)",
         }}
@@ -167,21 +169,15 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index }) => {
       </div>
 
       {/* Card content */}
-      <div className="bg-white text-gray-900 rounded-xl shadow-lg p-8 dark:bg-gray-800 dark:text-white w-full text-left">
+      <div className="bg-primary text-textPrimary rounded-xl shadow-lg p-8 w-full text-left">
         {item.date && (
-          <span className="text-gray-600 dark:text-gray-400 font-mono text-sm tracking-wide">
-            {item.date}
-          </span>
+          <span className="text-textSecondary font-mono text-sm tracking-wide">{item.date}</span>
         )}
         {item.title && <h3 className="text-2xl font-semibold mt-1 mb-1">{item.title}</h3>}
-        {item.company && (
-          <h4 className="text-lg font-medium text-red-700 dark:text-red-500 mb-3">
-            {item.company}
-          </h4>
-        )}
+        {item.company && <h4 className="text-lg font-medium text-accent mb-3">{item.company}</h4>}
 
         {item.description && (
-          <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 leading-relaxed">
+          <ul className="list-disc list-inside space-y-2 text-textSecondary leading-relaxed">
             {item.description.map((point, idx) => (
               <li key={idx}>{point}</li>
             ))}
@@ -209,7 +205,7 @@ interface TimelineSectionProps {
 
 const TimelineSection: React.FC<TimelineSectionProps> = ({ section }) => (
   <>
-    <h2 className="text-4xl font-semibold mb-12 mt-20 border-b border-red-600 inline-block">
+    <h2 className="text-4xl font-semibold mb-12 mt-20 border-b border-accent inline-block">
       {section.section}
     </h2>
     <div className="relative">
@@ -223,7 +219,7 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ section }) => (
 const Timeline = () => (
   <div className="relative max-w-5xl mx-auto mt-12 px-4">
     {/* Center vertical line */}
-    <div className="hidden md:block absolute left-1/2 top-0 w-1 bg-red-600 h-full -translate-x-1/2" />
+    <div className="hidden md:block absolute left-1/2 top-0 w-1 bg-accent h-full -translate-x-1/2" />
     {timelineData.map((section, idx) => (
       <TimelineSection key={idx} section={section} />
     ))}

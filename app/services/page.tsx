@@ -13,7 +13,6 @@ const services = [
       "I can create a modern and responsive website for you using the latest technologies.",
     href: "/contact",
   },
-
   {
     number: "02",
     title: "UI/UX Design",
@@ -33,9 +32,10 @@ const services = [
     href: "/contact",
   },
 ];
+
 const Services = () => {
   return (
-    <section className="mind-h-80[80vh] flex flex-col justify-center py-12 xl:py-0">
+    <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0 bg-primary text-textPrimary">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -45,25 +45,25 @@ const Services = () => {
           {services.map((service, index) => {
             return (
               <div key={index} className="flex-1 flex flex-col justify-center gap-6 group">
-                <div className="w-fulll flex justify-between items-center">
+                <div className="w-full flex justify-between items-center">
                   <div className="text-5xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500">
                     {service.number}
                   </div>
                   <Link
                     href={service.href}
-                    className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:-rotate-45"
+                    className="w-[70px] h-[70px] rounded-full bg-secondary group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:-rotate-45"
                   >
                     <BsArrowDownRight className="text-primary text-3xl" />
                   </Link>
                 </div>
-                {/*Heading*/}
-                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">
+                {/* Heading */}
+                <h2 className="text-[42px] font-bold leading-none text-textPrimary group-hover:text-accent transition-all duration-500">
                   {service.title}
                 </h2>
-                {/*Description*/}
-                <p className="text-white/60">{service.description}</p>
+                {/* Description */}
+                <p className="text-textSecondary">{service.description}</p>
                 {/* Border */}
-                <div className="border-b border-white/20 w-full"></div>
+                <div className="border-b border-borderGray w-full"></div>
               </div>
             );
           })}

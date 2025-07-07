@@ -3,15 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/Components/Button";
-import {
-  FaMapMarkedAlt,
-  FaGamepad,
-  FaLaptopCode,
-  FaCode,
-  FaProjectDiagram,
-  FaChevronDown,
-} from "react-icons/fa";
-import Nav from "./Nav";
+import { FaGamepad, FaLaptopCode, FaCode, FaProjectDiagram, FaChevronDown } from "react-icons/fa";
 import Link from "next/link";
 
 interface Project {
@@ -40,7 +32,7 @@ const projects: Project[] = [
       "Google Maps SDK",
       "Google Cloud Platform",
     ],
-    repoUrl: "https://github.com/LukeChester03/PathWise",
+    repoUrl: null,
   },
   {
     title: "Terminology Hub",
@@ -84,6 +76,14 @@ const projects: Project[] = [
   },
 ];
 
+const gradientColors = [
+  "rgba(169,27,13,0.07)", // Soft red
+  "rgba(13,87,169,0.07)", // Soft blue
+  "rgba(27,169,97,0.07)", // Soft green
+  "rgba(169,131,13,0.07)", // Soft orange
+  "rgba(93,13,169,0.07)", // Soft purple
+];
+
 const fadeSlideVariants = {
   hiddenLeft: { opacity: 0, x: -100 },
   hiddenRight: { opacity: 0, x: 100 },
@@ -99,14 +99,19 @@ function PlaceholderIcon({
 }) {
   const Icon = placeholderIcons[(projectIndex + imageIndex) % placeholderIcons.length];
   return (
-    <div className="flex items-center justify-center w-full h-[50vh] md:h-[70vh] rounded-xl bg-gray-800/60 text-gray-400 select-none">
+    <div className="flex items-center justify-center w-full h-[50vh] md:h-[70vh] rounded-xl bg-secondary text-textSecondary select-none">
       <Icon className="text-7xl md:text-9xl" aria-hidden="true" />
     </div>
   );
 }
+
 function ScrollIndicatorSection({ text }: { text: string }) {
   return (
-    <section className="snap-start h-screen flex flex-col items-center justify-center px-8 bg-primary opacity-100 text-white text-center select-none">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { delay: 2, duration: 0.4, ease: "easeIn" } }}
+      className="snap-start h-screen flex flex-col items-center justify-center px-8 bg-primary opacity-100 text-textPrimary text-center select-none"
+    >
       <motion.p
         className="text-3xl md:text-4xl font-semibold max-w-xl mb-12"
         initial={{ opacity: 0, y: 20 }}
@@ -123,13 +128,14 @@ function ScrollIndicatorSection({ text }: { text: string }) {
       >
         <FaChevronDown />
       </motion.div>
-    </section>
+    </motion.section>
   );
 }
 
 export default function PortfolioContent() {
   return (
-    <div
+    <motion.div
+      animate={{ opacity: 1, transition: { delay: 2.4, duration: 0.4, ease: "easeIn" } }}
       className="h-screen snap-y snap-mandatory overflow-y-scroll scrollbar-none"
       style={{ scrollSnapType: "y mandatory" }}
     >
@@ -148,134 +154,163 @@ export default function PortfolioContent() {
       {/* Intro Scroll Indicator */}
       <ScrollIndicatorSection text="Here are a few of my projects" />
 
-      {projects.map((project, projIdx) => (
-        <React.Fragment key={project.title}>
-          {/* Section 1: Title + Image */}
-          <section className="snap-start h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 text-center md:text-left max-w-7xl mx-auto w-full gap-10">
-            <motion.div
-              className="md:w-1/2 flex flex-col justify-center items-center md:items-start"
-              initial="hiddenLeft"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              variants={fadeSlideVariants}
+      {projects.map((project, projIdx) => {
+        const gradientColor = gradientColors[projIdx % gradientColors.length];
+        return (
+          <React.Fragment key={project.title}>
+            {/* Section 1: Title + Image */}
+            <section
+              className="snap-start h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 text-center md:text-left max-w-7xl mx-auto w-full gap-10"
+              style={{
+                background: `linear-gradient(135deg, ${gradientColor} 0%, transparent 100%)`,
+              }}
             >
-              <h2 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6 max-w-md">
-                {project.title}
-              </h2>
-              <p className="text-base md:text-lg text-white/70 max-w-md">{project.description}</p>
-            </motion.div>
-
-            {project.images[0] ? (
-              <motion.img
-                src={project.images[0]}
-                alt={`${project.title} screenshot 1`}
-                loading="lazy"
-                className="md:w-3/5 rounded-xl shadow-xl max-h-[60vh] md:max-h-[80vh] object-contain"
-                initial="hiddenRight"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                variants={fadeSlideVariants}
-              />
-            ) : (
-              <PlaceholderIcon projectIndex={projIdx} imageIndex={0} />
-            )}
-          </section>
-
-          {/* Section 2: Detailed Description + Image */}
-          <section className="snap-start h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 bg-primary text-center md:text-left max-w-7xl mx-auto w-full gap-10">
-            {project.images[1] ? (
-              <motion.img
-                src={project.images[1]}
-                alt={`${project.title} screenshot 2`}
-                loading="lazy"
-                className="md:w-1/2 rounded-xl shadow-xl max-h-[50vh] md:max-h-[70vh] object-cover order-2 md:order-1"
+              <motion.div
+                className="md:w-1/2 flex flex-col justify-center items-center md:items-start"
                 initial="hiddenLeft"
                 whileInView="visible"
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 variants={fadeSlideVariants}
-              />
-            ) : (
-              <PlaceholderIcon projectIndex={projIdx} imageIndex={1} />
-            )}
+              >
+                <h2 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6 max-w-md text-textPrimary">
+                  {project.title}
+                </h2>
+                <p className="text-base md:text-lg text-textSecondary max-w-md">
+                  {project.description}
+                </p>
+              </motion.div>
 
-            <motion.div
-              className="md:w-1/2 flex flex-col justify-center order-1 md:order-2 items-center md:items-start"
-              initial="hiddenRight"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              variants={fadeSlideVariants}
-            >
-              <p className="text-base md:text-lg text-white/70 max-w-md">{project.details}</p>
-            </motion.div>
-          </section>
-
-          {/* Section 3: Tech Stack + Image */}
-          <section className="snap-start h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 bg-primary text-center md:text-left max-w-7xl mx-auto w-full gap-10">
-            <motion.div
-              className="md:w-1/2 flex flex-col justify-center items-center md:items-start"
-              initial="hiddenLeft"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              variants={fadeSlideVariants}
-            >
-              <h3 className="text-3xl md:text-4xl font-semibold mb-6">Technologies Used</h3>
-              <ul className="flex flex-wrap gap-4 max-w-md justify-center md:justify-start">
-                {project.techStack.map((tech) => (
-                  <li
-                    key={tech}
-                    className="bg-accent text-primary px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-semibold select-none"
-                  >
-                    {tech}
-                  </li>
-                ))}
-              </ul>
-              {project.repoUrl && (
-                <a
-                  href={project.repoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-8 md:mt-10 inline-block"
-                >
-                  <Button size="lg" variant="outline">
-                    View Source Code
-                  </Button>
-                </a>
+              {project.images[0] ? (
+                <motion.img
+                  src={project.images[0]}
+                  alt={`${project.title} screenshot 1`}
+                  loading="lazy"
+                  className="md:w-3/5 rounded-xl shadow-xl max-h-[60vh] md:max-h-[80vh] object-contain"
+                  initial="hiddenRight"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  variants={fadeSlideVariants}
+                />
+              ) : (
+                <PlaceholderIcon projectIndex={projIdx} imageIndex={0} />
               )}
-            </motion.div>
+            </section>
 
-            {project.images[2] ? (
-              <motion.img
-                src={project.images[2]}
-                alt={`${project.title} screenshot 3`}
-                loading="lazy"
-                className="md:w-3/5 rounded-xl shadow-xl max-h-[50vh] md:max-h-[70vh] object-contain"
+            {/* Section 2: Detailed Description + Image */}
+            <section
+              className="snap-start h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 bg-secondary text-center md:text-left max-w-7xl mx-auto w-full gap-10"
+              style={{
+                background: `linear-gradient(135deg, ${gradientColor} 0%, transparent 100%)`,
+              }}
+            >
+              {project.images[1] ? (
+                <motion.img
+                  src={project.images[1]}
+                  alt={`${project.title} screenshot 2`}
+                  loading="lazy"
+                  className="md:w-1/2 rounded-xl shadow-xl max-h-[50vh] md:max-h-[70vh] object-cover order-2 md:order-1"
+                  initial="hiddenLeft"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  variants={fadeSlideVariants}
+                />
+              ) : (
+                <PlaceholderIcon projectIndex={projIdx} imageIndex={1} />
+              )}
+
+              <motion.div
+                className="md:w-1/2 flex flex-col justify-center order-1 md:order-2 items-center md:items-start"
                 initial="hiddenRight"
                 whileInView="visible"
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 variants={fadeSlideVariants}
-              />
-            ) : (
-              <PlaceholderIcon projectIndex={projIdx} imageIndex={2} />
-            )}
-          </section>
+              >
+                <p className="text-base md:text-lg text-textSecondary max-w-md">
+                  {project.details}
+                </p>
+              </motion.div>
+            </section>
 
-          {/* Scroll Indicator between projects, except after last */}
-          {projIdx !== projects.length - 1 && (
-            <ScrollIndicatorSection text="Scroll for my Next Project" />
-          )}
-        </React.Fragment>
-      ))}
+            {/* Section 3: Tech Stack + Image */}
+            <section
+              className="snap-start h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 bg-secondary text-center md:text-left max-w-7xl mx-auto w-full gap-10"
+              style={{
+                background: `linear-gradient(135deg, ${gradientColor} 0%, transparent 100%)`,
+              }}
+            >
+              <motion.div
+                className="md:w-1/2 flex flex-col justify-center items-center md:items-start"
+                initial="hiddenLeft"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                variants={fadeSlideVariants}
+              >
+                <h3 className="text-3xl md:text-4xl font-semibold mb-6 text-textPrimary">
+                  Technologies Used
+                </h3>
+                <ul className="flex flex-wrap gap-4 max-w-md justify-center md:justify-start">
+                  {project.techStack.map((tech) => (
+                    <li
+                      key={tech}
+                      className="bg-accent text-primary px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-semibold select-none"
+                    >
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
+                {project.repoUrl && (
+                  <a
+                    href={project.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-8 md:mt-10 inline-block"
+                  >
+                    <Button size="lg" variant="outline">
+                      View Source Code
+                    </Button>
+                  </a>
+                )}
+              </motion.div>
+
+              {project.images[2] ? (
+                <motion.img
+                  src={project.images[2]}
+                  alt={`${project.title} screenshot 3`}
+                  loading="lazy"
+                  className="md:w-3/5 rounded-xl shadow-xl max-h-[50vh] md:max-h-[70vh] object-contain"
+                  initial="hiddenRight"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  variants={fadeSlideVariants}
+                />
+              ) : (
+                <PlaceholderIcon projectIndex={projIdx} imageIndex={2} />
+              )}
+            </section>
+
+            {/* Scroll Indicator between projects, except after last */}
+            {projIdx !== projects.length - 1 && (
+              <ScrollIndicatorSection text="Scroll for my Next Project" />
+            )}
+          </React.Fragment>
+        );
+      })}
 
       {/* Final Section */}
-      <section className="snap-start h-screen flex flex-col items-center justify-center px-8 bg-primary text-white text-center select-none">
+      <section
+        className="snap-start h-screen flex flex-col items-center justify-center px-8 bg-secondary text-textPrimary text-center select-none"
+        style={{
+          background: `linear-gradient(135deg, rgba(169,27,13,0.07) 0%, transparent 100%)`,
+        }}
+      >
         <motion.h2
-          className="text-4xl md:text-5xl font-extrabold mb-8 max-w-xl"
+          className="text-4xl md:text-5xl font-extrabold mb-8 max-w-xl text-textPrimary"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -287,13 +322,13 @@ export default function PortfolioContent() {
           transition={{ duration: 0.8, repeat: Infinity, ease: "easeOut" }}
           className="text-accent text-6xl md:text-7xl"
           aria-hidden="true"
-        ></motion.div>
+        />
         <div className="hidden lg:flex items-center gap-8">
           <Link href={"/contact"}>
             <Button size={"lg"}>Reach Out</Button>
           </Link>
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 }

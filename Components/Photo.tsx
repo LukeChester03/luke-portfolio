@@ -35,7 +35,7 @@ const Photo = () => {
             cx="253"
             cy="253"
             r="250"
-            stroke="#a91b0d"
+            stroke="#0071e3"
             strokeWidth={"4"}
             strokeLinecap={"round"}
             strokeLinejoin={"round"}

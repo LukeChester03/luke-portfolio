@@ -20,6 +20,7 @@ import {
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import Footer from "@/Components/Footer";
 
 const info = [
   { icon: <FaEnvelope />, title: "Email", description: "lukechester03@outlook.com" },
@@ -82,12 +83,12 @@ const Contact = () => {
             <ul className="flex flex-row gap-10">
               {info.map((item, index) => (
                 <li key={index} className="flex items-center gap-6">
-                  <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
+                  <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-secondary text-accent rounded-md flex items-center justify-center">
                     <div className="text-[28px]">{item.icon}</div>
                   </div>
                   <div>
-                    <p className="text-white/60">{item.title}</p>
-                    <h3 className="text-xl">{item.description}</h3>
+                    <p className="text-textSecondary">{item.title}</p>
+                    <h3 className="text-textPrimary text-xl">{item.description}</h3>
                   </div>
                 </li>
               ))}
@@ -97,11 +98,11 @@ const Contact = () => {
           <div className="xl:h-[54%]">
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
+              className="flex flex-col gap-6 p-10 bg-secondary rounded-xl"
               noValidate
             >
               <h3 className="text-4xl text-accent">Let's get in touch</h3>
-              <p className="text-white/60">
+              <p className="text-textSecondary">
                 Whether you're looking for help creating or updating your website, exploring my
                 other services, or simply want to connect for collaboration, feel free to send me a
                 message!
@@ -166,9 +167,7 @@ const Contact = () => {
                   defaultValue=""
                   aria-invalid={errors.service ? "true" : "false"}
                 >
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select a service" />
-                  </SelectTrigger>
+                  <SelectTrigger className="w-full text-black" />
                   <SelectContent>
                     <SelectGroup>
                       <SelectLabel>Select a Service</SelectLabel>
@@ -217,6 +216,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </motion.section>
   );
 };

@@ -25,12 +25,15 @@ const config: Config = {
     },
     extend: {
       colors: {
-        primary: "#181c20",
-        secondary: "#23292d",
+        primary: "#ffffff", // background white
+        secondary: "#f5f5f7", // very light gray background or surfaces
         accent: {
-          DEFAULT: "#a91b0d",
-          hover: "#900603",
+          DEFAULT: "#0071e3", // Apple-style blue accent
+          hover: "#005bb5", // slightly darker blue for hover states
         },
+        textPrimary: "#1d1d1f", // dark gray (near black) text
+        textSecondary: "#3a3a3c", // medium gray text for secondary info
+        borderGray: "#e5e5e7", // subtle border gray
       },
     },
   },

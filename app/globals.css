@@ -4,7 +4,8 @@
 
 @layer base {
   body {
-    @apply font-primary bg-primary text-white leading-loose;
+    /* Use the new primary (white) background and dark gray text */
+    @apply font-primary bg-primary text-textPrimary leading-relaxed;
   }
   .h1 {
     @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
@@ -15,15 +16,28 @@
   .h3 {
     @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
   }
+
+  /* Accent border color from config */
   .border-color-accent {
-    border-color: #e3242b;
+    border-color: theme("colors.accent.DEFAULT");
   }
 
+  /* Text outline in subtle dark gray */
   .text-outline {
-    -webkit-text-stroke: 1px #ffffff;
+    -webkit-text-stroke: 1px #333333;
   }
 
+  /* Text outline hover accent */
   .text-outline-hover {
-    -webkit-text-stroke: 1px #e3242b;
+    -webkit-text-stroke: 1px theme("colors.accent.DEFAULT");
+  }
+  .pattern-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(209, 213, 219, 0.3) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+    z-index: 0;
   }
 }
