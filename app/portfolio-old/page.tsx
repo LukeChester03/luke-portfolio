@@ -8,7 +8,6 @@ const PortfolioPage = () => {
   return (
     <main className="snap-y snap-mandatory bg-full-gradient h-screen w-screen overflow-y-scroll overflow-x-hidden">
       <PortfolioContent />
-      <Footer />
     </main>
   );
 };

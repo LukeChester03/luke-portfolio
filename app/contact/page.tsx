@@ -76,7 +76,7 @@ const Contact = () => {
       animate={{ opacity: 1, transition: { delay: 0.2, duration: 0.4, ease: "easeIn" } }}
       className="py-6 bg-primary-gradient"
     >
-      <div className="container mx-auto">
+      <div className="container mx-auto py-6">
         <div className="flex flex-col xl:flex-col gap-[30px]">
           {/* info */}
           <div className="flex-1 flex items-start xl:justify-start mb-8 xl:mb-0">

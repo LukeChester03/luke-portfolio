@@ -1,8 +1,9 @@
+// TimelineSection.tsx
+
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/Components/Button";
 import {
   FaBriefcase,
   FaReact,
@@ -11,10 +12,8 @@ import {
   FaGitAlt,
   FaNodeJs,
   FaLaptopCode,
-  FaPhp,
 } from "react-icons/fa";
 import { SiTailwindcss, SiNextdotjs, SiFirebase } from "react-icons/si";
-import Link from "next/link";
 
 const timelineData = [
   {
@@ -74,225 +73,68 @@ const timelineData = [
       },
     ],
   },
-  {
-    section: "Skills",
-    items: [
-      {
-        title: "Technical Skills",
-        description: [
-          "Advanced proficiency in JavaScript, TypeScript, Node.js, Python, SQL, React.js, and CSS.",
-          "Experience with REST APIs, Git version control, Agile development, and cloud platforms.",
-        ],
-        icon: <FaLaptopCode />,
-      },
-      {
-        title: "Professional & Soft Skills",
-        description: [
-          "Strong teamwork, communication, and problem-solving skills.",
-          "Experience leading workshops, delivering presentations, and facilitating brainstorming sessions.",
-          "Adaptable and quick learner with a passion for innovative technology solutions.",
-        ],
-        icon: <FaLaptopCode />,
-      },
-    ],
-  },
-  {
-    section: "Selected Projects",
-    items: [
-      {
-        title: "Terminology Hub",
-        description: [
-          "Created a React front-end featuring real-time search, user term submission, and voting integrated with Python REST APIs.",
-          "Improved internal knowledge sharing and reduced search time across teams.",
-        ],
-        icon: <FaLaptopCode />,
-      },
-      {
-        title: "Venue Booking Website",
-        description: [
-          "Developed a PHP-based site with a SQL backend supporting real-time bookings and dynamic content using ES6 and AJAX.",
-          "Enhanced booking efficiency and user experience through responsive design.",
-        ],
-        icon: <FaPhp />,
-      },
-      {
-        title: "AI-Powered Mobile Tourism App",
-        description: [
-          "Built a global travel app using React Native, Firebase, Google Gemini AI, and Google Maps API.",
-          "Implemented a caching system reducing API calls by 95%, improving performance and reducing costs.",
-          "Enabled personalized, location-based cultural insights to enrich user travel experiences.",
-        ],
-        icon: <SiFirebase />,
-      },
-    ],
-  },
 ];
 
 const TechBadge = ({ icon }: { icon: React.ReactNode }) => (
-  <div className="text-accent bg-accent/20 rounded-full p-2 mr-2 flex items-center justify-center text-xl shadow-sm">
+  <motion.div
+    whileHover={{ scale: 1.1 }}
+    className="text-accent bg-accent/20 rounded-full p-2 mr-2 flex items-center justify-center text-xl shadow-sm"
+  >
     {icon}
-  </div>
+  </motion.div>
 );
 
-const CARD_WIDTH_PX = 480;
-
-interface TimelineItemProps {
-  item: {
-    date?: string;
-    title?: string;
-    company?: string;
-    description?: string[];
-    icon?: React.ReactNode;
-    techStack?: React.ReactNode[];
-  };
-  index: number;
-}
-
-const TimelineItem: React.FC<TimelineItemProps> = ({ item, index }) => {
-  const isRightSide = index % 2 === 0;
-
+export default function TimelineSection() {
   return (
-    <motion.div
-      className="relative mb-16 px-4"
-      initial={{ opacity: 0, x: isRightSide ? 30 : -30 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      style={{
-        maxWidth: `${CARD_WIDTH_PX}px`,
-        marginLeft: isRightSide ? "calc(50% + 1.5rem)" : undefined,
-        marginRight: !isRightSide ? "calc(50% + 1.5rem)" : undefined,
-        textAlign: "left",
-      }}
-    >
-      {/* Icon bullet */}
-      <div
-        className="absolute top-5 w-14 h-14 bg-accent text-primary rounded-full flex items-center justify-center shadow-lg text-2xl"
-        style={{
-          left: isRightSide ? "-52px" : "calc(100% - 4px)",
-        }}
-      >
-        {item.icon}
-      </div>
-
-      {/* Card content */}
-      <div className="bg-primary text-textPrimary rounded-xl shadow-lg p-8 w-full text-left">
-        {item.date && (
-          <span className="text-textSecondary font-mono text-sm tracking-wide">{item.date}</span>
-        )}
-        {item.title && <h3 className="text-2xl font-semibold mt-1 mb-1">{item.title}</h3>}
-        {item.company && <h4 className="text-lg font-medium text-accent mb-3">{item.company}</h4>}
-
-        {item.description && (
-          <ul className="list-disc list-inside space-y-2 text-textSecondary leading-relaxed">
-            {item.description.map((point, idx) => (
-              <li key={idx}>{point}</li>
-            ))}
-          </ul>
-        )}
-
-        {item.techStack && (
-          <div className="flex mt-5 flex-wrap justify-start">
-            {item.techStack.map((icon, idx) => (
-              <TechBadge key={idx} icon={icon} />
-            ))}
-          </div>
-        )}
-      </div>
-    </motion.div>
-  );
-};
-
-interface TimelineSectionProps {
-  section: {
-    section: string;
-    items: any[];
-  };
-}
-
-const TimelineSection: React.FC<TimelineSectionProps> = ({ section }) => (
-  <>
-    <h2 className="text-4xl font-semibold mb-12 mt-20 mr-8 border-b border-accent inline-block">
-      {section.section}
-    </h2>
-    <div className="relative">
-      {section.items.map((item, idx) => (
-        <TimelineItem key={idx} item={item} index={idx} />
-      ))}
-    </div>
-  </>
-);
-
-const MobileTimelineItem: React.FC<{ item: TimelineItemProps["item"] }> = ({ item }) => (
-  <div className="bg-primary text-textPrimary rounded-xl shadow-lg p-6 mb-8 max-w-xl mx-auto">
-    {item.date && (
-      <span className="text-textSecondary font-mono text-sm tracking-wide">{item.date}</span>
-    )}
-    {item.title && <h3 className="text-xl font-semibold mt-1 mb-1">{item.title}</h3>}
-    {item.company && <h4 className="text-md font-medium text-accent mb-3">{item.company}</h4>}
-
-    {item.description && (
-      <ul className="list-disc list-inside space-y-1 text-textSecondary leading-relaxed text-sm">
-        {item.description.map((point, idx) => (
-          <li key={idx}>{point}</li>
-        ))}
-      </ul>
-    )}
-
-    {item.techStack && (
-      <div className="flex mt-3 flex-wrap justify-start">
-        {item.techStack.map((icon, idx) => (
-          <TechBadge key={idx} icon={icon} />
-        ))}
-      </div>
-    )}
-  </div>
-);
-
-const MobileTimelineSection: React.FC<TimelineSectionProps> = ({ section }) => (
-  <>
-    <h2 className="text-2xl font-semibold mb-6 mt-12 border-b border-accent inline-block px-4">
-      {section.section}
-    </h2>
-    <div>
-      {section.items.map((item, idx) => (
-        <MobileTimelineItem key={idx} item={item} />
-      ))}
-    </div>
-  </>
-);
-
-const Timeline = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    function checkMobile() {
-      setIsMobile(window.innerWidth < 768);
-    }
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  if (isMobile) {
-    return (
-      <div className="p-4 max-w-md mx-auto">
+    <section className="snap-start w-full min-h-screen px-6 md:px-10 py-8 text-textPrimary">
+      <div className="max-w-6xl mx-auto">
         {timelineData.map((section, idx) => (
-          <MobileTimelineSection key={idx} section={section} />
+          <div key={idx} className="mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-4xl font-bold mb-12 border-l-4 border-accent pl-4"
+            >
+              {section.section}
+            </motion.h2>
+
+            <div className="relative border-l-2 border-dashed border-accent/40 pl-8">
+              {section.items.map((item, itemIdx) => (
+                <motion.div
+                  key={itemIdx}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: itemIdx * 0.1 }}
+                  viewport={{ once: true }}
+                  className="mb-12 relative"
+                >
+                  <div className="absolute left-[-1.15rem] top-2.5 w-5 h-5 bg-accent rounded-full border-4 border-background"></div>
+
+                  <div>
+                    <p className="text-sm text-textSecondary font-mono mb-1">{item.date}</p>
+                    <h3 className="text-xl font-semibold text-accent mb-1">{item.title}</h3>
+                    <h4 className="text-lg font-medium mb-3">{item.company}</h4>
+                    <ul className="list-disc list-inside text-base space-y-1">
+                      {item.description.map((point, i) => (
+                        <li key={i}>{point}</li>
+                      ))}
+                    </ul>
+                    {item.techStack && (
+                      <div className="flex mt-4 flex-wrap">
+                        {item.techStack.map((icon, idx) => (
+                          <TechBadge key={idx} icon={icon} />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
-    );
-  }
-
-  return (
-    <div className="relative max-w-5xl mx-auto mt-12 px-4">
-      {/* Center vertical line */}
-      <div className="hidden md:block absolute left-1/2 top-0 w-1 bg-accent h-full -translate-x-1/2" />
-      {timelineData.map((section, idx) => (
-        <TimelineSection key={idx} section={section} />
-      ))}
-    </div>
+    </section>
   );
-};
-
-export default Timeline;
+}
