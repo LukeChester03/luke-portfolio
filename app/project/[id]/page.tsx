@@ -20,7 +20,7 @@ const extendedProjects = [
       "Features include caching for API cost optimization and gamified location-based learning.",
       "Real-time geolocation tracking with cultural story generation.",
       "Optimized for performance with intelligent caching strategies.",
-      "Gamified learning experience to enhance user engagement."
+      "Gamified learning experience to enhance user engagement.",
     ],
     techStack: [
       "React Native",
@@ -29,23 +29,19 @@ const extendedProjects = [
       "Google Maps SDK",
       "Google Cloud",
     ],
-    repoUrl: null,
+    repoUrl: "https://github.com/LukeChester03/PathWise",
     demoUrl: null,
-    images: [
-      "/PathWise_ss_1.png",
-      "/PathWise_ss_2.png",
-      "/PathWise_ss_3.png"
-    ],
+    images: ["/PathWise_ss_1.png", "/PathWise_ss_2.png", "/PathWise_ss_3.png"],
     challenges: [
       "Integrating multiple APIs while maintaining performance",
       "Implementing efficient caching strategies",
-      "Creating smooth user experience with real-time location updates"
+      "Creating smooth user experience with real-time location updates",
     ],
     solutions: [
       "Implemented intelligent caching to reduce API calls",
       "Used React Native's performance optimizations",
-      "Designed intuitive UI for seamless navigation"
-    ]
+      "Designed intuitive UI for seamless navigation",
+    ],
   },
   {
     id: 2,
@@ -58,25 +54,22 @@ const extendedProjects = [
       "Includes real-time search and voting system.",
       "Streamlined terminology management for large organizations.",
       "User-friendly interface for easy term submission and retrieval.",
-      "Advanced search capabilities with filtering options."
+      "Advanced search capabilities with filtering options.",
     ],
     techStack: ["React", "Python", "MongoDB"],
     repoUrl: null,
     demoUrl: null,
-    images: [
-      "/TermHub_ss_1.png",
-      "/TermHub_ss_2.png"
-    ],
+    images: ["/TermHub_ss_1.png", "/TermHub_ss_2.png"],
     challenges: [
       "Creating an intuitive search interface",
       "Implementing real-time updates",
-      "Managing large datasets efficiently"
+      "Managing large datasets efficiently",
     ],
     solutions: [
       "Built responsive search with debouncing",
       "Used WebSocket connections for real-time updates",
-      "Optimized database queries for performance"
-    ]
+      "Optimized database queries for performance",
+    ],
   },
   {
     id: 3,
@@ -89,25 +82,22 @@ const extendedProjects = [
       "Designed for responsiveness and accessibility.",
       "Modern animations and smooth transitions throughout.",
       "Optimized for performance and SEO.",
-      "Showcases technical skills and creative design."
+      "Showcases technical skills and creative design.",
     ],
     techStack: ["React", "TypeScript", "Framer Motion", "Three.js"],
     repoUrl: "https://github.com/LukeChester03/luke-portfolio",
     demoUrl: null,
-    images: [
-      "/PW_ss_1.png",
-      "/PW_ss_2.png"
-    ],
+    images: ["/PW_ss_1.png", "/PW_ss_2.png"],
     challenges: [
       "Creating smooth animations without performance issues",
       "Ensuring accessibility across all devices",
-      "Balancing visual appeal with functionality"
+      "Balancing visual appeal with functionality",
     ],
     solutions: [
       "Used Framer Motion for optimized animations",
       "Implemented proper ARIA labels and keyboard navigation",
-      "Designed with mobile-first responsive approach"
-    ]
+      "Designed with mobile-first responsive approach",
+    ],
   },
 ];
 
@@ -116,8 +106,8 @@ export default function ProjectPage() {
   const router = useRouter();
   const projectId = parseInt(params.id as string);
   const [scrollRatio, setScrollRatio] = useState(0);
-  
-  const project = extendedProjects.find(p => p.id === projectId);
+
+  const project = extendedProjects.find((p) => p.id === projectId);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -153,29 +143,24 @@ export default function ProjectPage() {
 
   if (!project) {
     return (
-      <div 
+      <div
         className="min-h-screen flex items-center justify-center text-black pattern-bg"
         style={bgStyle}
       >
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4 text-textPrimary">Project Not Found</h1>
-          <Button onClick={() => router.push('/projects')}>
-            Back to Projects
-          </Button>
+          <Button onClick={() => router.push("/projects")}>Back to Projects</Button>
         </div>
       </div>
     );
   }
 
   const handleBackToProjects = () => {
-    router.push('/projects');
+    router.push("/projects");
   };
 
   return (
-    <div 
-      className="min-h-screen text-textPrimary pattern-bg"
-      style={bgStyle}
-    >
+    <div className="min-h-screen text-textPrimary pattern-bg" style={bgStyle}>
       {/* Back Button - Top Right */}
       <motion.div
         initial={{ opacity: 0, x: 20 }}
@@ -205,11 +190,9 @@ export default function ProjectPage() {
             <h1 className="text-5xl md:text-7xl font-bold text-textPrimary mb-6">
               {project.title}
             </h1>
-            
-            <p className="text-xl text-accent font-medium mb-8">
-              {project.subtitle}
-            </p>
-            
+
+            <p className="text-xl text-accent font-medium mb-8">{project.subtitle}</p>
+
             <p className="text-lg text-textSecondary max-w-3xl mx-auto leading-relaxed">
               {project.summary}
             </p>
@@ -248,7 +231,7 @@ export default function ProjectPage() {
             <h2 className="text-3xl font-bold text-textPrimary mb-12 text-center">
               About the Project
             </h2>
-            
+
             <div className="space-y-16">
               {project.details.map((detail, index) => (
                 <motion.div
@@ -257,14 +240,14 @@ export default function ProjectPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
-                  className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12`}
+                  className={`flex flex-col ${
+                    index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                  } items-center gap-12`}
                 >
                   <div className="lg:w-1/2">
-                    <p className="text-textSecondary leading-relaxed text-lg">
-                      {detail}
-                    </p>
+                    <p className="text-textSecondary leading-relaxed text-lg">{detail}</p>
                   </div>
-                  
+
                   {project.images[index + 1] && (
                     <div className="lg:w-1/2">
                       <img
@@ -294,7 +277,7 @@ export default function ProjectPage() {
             <h2 className="text-3xl font-bold text-textPrimary mb-12 text-center">
               Technologies Used
             </h2>
-            
+
             <div className="flex flex-wrap gap-4 justify-center">
               {project.techStack.map((tech, index) => (
                 <motion.span
@@ -336,7 +319,9 @@ export default function ProjectPage() {
                   {project.challenges.map((challenge, index) => (
                     <li key={index} className="flex items-start gap-4">
                       <span className="text-accent font-bold text-xl mt-1">•</span>
-                      <span className="text-textSecondary text-lg leading-relaxed">{challenge}</span>
+                      <span className="text-textSecondary text-lg leading-relaxed">
+                        {challenge}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -385,7 +370,7 @@ export default function ProjectPage() {
                   View Code on GitHub
                 </Button>
               )}
-              
+
               {project.demoUrl && (
                 <Button
                   variant="outline"
@@ -403,4 +388,4 @@ export default function ProjectPage() {
       </motion.section>
     </div>
   );
-} 
+}

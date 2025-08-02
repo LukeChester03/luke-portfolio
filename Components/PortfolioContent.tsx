@@ -24,7 +24,7 @@ const projects = [
       "Google Maps SDK",
       "Google Cloud",
     ],
-    repoUrl: null,
+    repoUrl: "https://github.com/LukeChester03/PathWise",
   },
   {
     title: "Terminology Hub",
