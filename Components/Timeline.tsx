@@ -15,7 +15,21 @@ import {
 } from "react-icons/fa";
 import { SiTailwindcss, SiNextdotjs, SiFirebase } from "react-icons/si";
 
-const timelineData = [
+interface TimelineItem {
+  date: string;
+  title: string;
+  company: string;
+  description: string[];
+  icon: React.ReactNode;
+  techStack?: React.ReactNode[];
+}
+
+interface TimelineSection {
+  section: string;
+  items: TimelineItem[];
+}
+
+const timelineData: TimelineSection[] = [
   {
     section: "Education",
     items: [
