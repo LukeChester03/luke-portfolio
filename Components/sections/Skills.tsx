@@ -21,36 +21,41 @@ import { FiGlobe, FiSmartphone, FiCpu, FiServer } from "react-icons/fi";
 const highLevelSkills = [
   {
     title: "Web Developer",
-    description: "Full-stack web applications with modern frameworks and responsive design",
+    description:
+      "Full-stack web applications with modern frameworks (React and Typescript) and responsive design",
     icon: <FiGlobe className="text-3xl" />,
-    highlight: "Built complete web applications from frontend to backend, including database design, API development, and cloud deployment.",
+    highlight:
+      "Built complete web applications from frontend to backend, including database design, API development, and cloud deployment.",
     badge: "End-to-End Solutions",
-    color: "from-blue-500 to-blue-600"
+    color: "from-blue-500 to-blue-600",
   },
   {
     title: "App Developer",
-    description: "Cross-platform mobile applications with React Native and native features",
+    description: "Cross-platform mobile applications with React Native",
     icon: <FiSmartphone className="text-3xl" />,
-    highlight: "Successfully integrated Google's Gemini AI with intelligent caching strategies for cost optimization and enhanced user experience.",
+    highlight:
+      "Successfully integrated Google's Gemini AI with intelligent caching strategies for cost optimisation and enhanced user experience.",
     badge: "AI + Mobile Development",
-    color: "from-green-500 to-green-600"
+    color: "from-green-500 to-green-600",
   },
   {
     title: "AI Integrations",
-    description: "Integration of AI services and machine learning solutions",
+    description: "Integration of AI services",
     icon: <FiCpu className="text-3xl" />,
-    highlight: "Experience AI integration, cost optimisation, and intelligent caching strategies for enhanced user experiences.",
+    highlight:
+      "AI integration, cost optimisation, and intelligent caching strategies for enhanced user experiences.",
     badge: "AI Integration",
-    color: "from-purple-500 to-purple-600"
+    color: "from-purple-500 to-purple-600",
   },
   {
     title: "Backend Design",
     description: "Robust backend systems with scalable architecture and efficient data management",
     icon: <FiServer className="text-3xl" />,
-    highlight: "Designed and implemented scalable backend systems with optimized database structures and efficient API endpoints.",
+    highlight:
+      "Designed and implemented scalable backend systems with optimised database structures and efficient API endpoints.",
     badge: "Scalable Architecture",
-    color: "from-orange-500 to-orange-600"
-  }
+    color: "from-orange-500 to-orange-600",
+  },
 ];
 
 // Technical skills
@@ -102,10 +107,10 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.15, delay: 0.1 + index * 0.03 }}
-                whileHover={{ 
-                  scale: 1.005, 
+                whileHover={{
+                  scale: 1.005,
                   y: -1,
-                  transition: { duration: 0.1 }
+                  transition: { duration: 0.1 },
                 }}
                 className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300"
               >
@@ -114,16 +119,16 @@ export default function Skills() {
                   whileInView={{ rotate: 0, scale: 1 }}
                   viewport={{ once: true, amount: 0.1 }}
                   transition={{ duration: 0.2, delay: 0.15 + index * 0.03 }}
-                  whileHover={{ 
-                    rotate: 1, 
+                  whileHover={{
+                    rotate: 1,
                     scale: 1.02,
-                    transition: { duration: 0.1 }
+                    transition: { duration: 0.1 },
                   }}
                   className={`w-16 h-16 rounded-full bg-gradient-to-r ${skill.color} flex items-center justify-center text-white mb-4 mx-auto shadow-lg`}
                 >
                   {skill.icon}
                 </motion.div>
-                <motion.h3 
+                <motion.h3
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true, amount: 0.1 }}
@@ -132,7 +137,7 @@ export default function Skills() {
                 >
                   {skill.title}
                 </motion.h3>
-                <motion.p 
+                <motion.p
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true, amount: 0.1 }}
@@ -150,7 +155,7 @@ export default function Skills() {
                 >
                   {skill.badge}
                 </motion.div>
-                <motion.p 
+                <motion.p
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true, amount: 0.1 }}
@@ -177,10 +182,10 @@ export default function Skills() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.15, delay: 0.15 }}
-            whileHover={{ 
-              scale: 1.002, 
+            whileHover={{
+              scale: 1.002,
               y: -1,
-              transition: { duration: 0.1 }
+              transition: { duration: 0.1 },
             }}
             className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 max-w-6xl mx-auto"
           >
@@ -192,22 +197,22 @@ export default function Skills() {
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true, amount: 0.1 }}
                   transition={{ duration: 0.1, delay: 0.2 + index * 0.01 }}
-                  whileHover={{ 
-                    scale: 1.08, 
+                  whileHover={{
+                    scale: 1.08,
                     y: -1,
-                    transition: { duration: 0.1 }
+                    transition: { duration: 0.1 },
                   }}
                   className="flex flex-col items-center text-accent text-3xl hover:text-accent-hover transition-all duration-300"
                 >
                   <motion.div
-                    whileHover={{ 
+                    whileHover={{
                       rotate: 3,
-                      transition: { duration: 0.1 }
+                      transition: { duration: 0.1 },
                     }}
                   >
                     {icon}
                   </motion.div>
-                  <motion.span 
+                  <motion.span
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true, amount: 0.1 }}
